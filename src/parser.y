@@ -23,8 +23,7 @@
   struct rdg_range* rangeval;
   char* strval;
   char charval;
-  struct component* componentval;
-  struct branch* branchval;
+  struct rdg_branch* branchval;
   struct rdg_group* groupval;
 }
 
