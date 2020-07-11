@@ -10,7 +10,7 @@
 int main() {
   struct rdg_group *group = NULL;
   struct rdg_group_iterator *iter = NULL;
-  struct branch *branch1 = NULL, *branch2 = NULL;
+  struct rdg_branch *branch1 = NULL, *branch2 = NULL;
 
   group = rdg_group_new();
   assert(group != NULL);
