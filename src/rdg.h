@@ -19,6 +19,10 @@ struct rdg;
 /**
  * @brief Creates a new data generator based off the provided expression
  *
+ * Creates the rdg object that stores the state of the generated regular
+ * expression. This is not thread-safe and it is the users responsibility
+ * to free with rdg_free().
+ *
  * @param[in] expression A regular expression (within the defined subset)
  * 
  * @return A data generator
@@ -28,6 +32,8 @@ struct rdg* rdg_new(const char* expression);
 /**
  * @brief Generates the next result from the data generator 
  *
+ * @param[out] result Generated data
+ * @param[out] size Size of generated data
  * @param[in] rdg A data generator
  * 
  * @return Whether a value was generated
