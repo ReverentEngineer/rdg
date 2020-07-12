@@ -211,15 +211,17 @@ struct rdg_buffer* rdg_branch_get(struct rdg_branch_iterator* iterator) {
 }
 
 static void reset_iterators(struct rdg_branch_iterator* node) {
-  switch (node->type) {
-    case NODE_ATOM:
-      break;
-    case NODE_RANGE:
-      node->range.iterator = rdg_range_begin(node->range.self);
-      break;
-    case NODE_GROUP:
-      node->group.group_iterator = rdg_group_begin(node->group.self);
-      break;
+  if (node) {
+    switch (node->type) {
+      case NODE_ATOM:
+        break;
+      case NODE_RANGE:
+        node->range.iterator = rdg_range_begin(node->range.self);
+        break;
+      case NODE_GROUP:
+        node->group.group_iterator = rdg_group_begin(node->group.self);
+        break;
+    }
   }
 }
 
