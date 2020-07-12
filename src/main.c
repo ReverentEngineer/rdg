@@ -58,21 +58,65 @@ static int rdg_generate_files(const char* dirname, struct rdg* rdg) {
   return EXIT_SUCCESS;
 }
 
+static void print_usage(void) {
+  printf("usage: rdg [options] [ <expression> <directory> ]\n\n");
+  printf("options:\n");
+  printf("   --%-10s %s\n", "version", "Print version and exit");
+  printf("   --%-10s %s\n", "help", "Print usage information and exit");
+}
+
 int main(int argc, char* argv[]) {
   struct rdg* rdg = NULL;
   int rc = EXIT_SUCCESS;
   size_t counter = 0;
   char *line = NULL;
   size_t size = 0;
+  int c = 0;
+  static int help = 0;
+  static int version = 0;
+  int option_index = 0;
 
-  if (argc > 3) {
-    fprintf(stderr, "Usage: rdg [ <expression> <directory> ]");
-    exit(1);
+  while (1) {
+    static struct option long_options[] = {
+      {"help", no_argument, &help, 1},
+      {"version", no_argument, &version, 1},
+      {0, 0, 0, 0}
+    };
+    
+    c = getopt_long(argc, argv, "", long_options, &option_index);
+
+    if (c == -1)
+      break;
+  
+    switch (c) {
+      case '?':
+        print_usage();
+        return EXIT_FAILURE;
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (help) {
+    print_usage();
+    return EXIT_SUCCESS;
+  }
+
+  if (version) {
+    printf("rdg version\n"); 
+    return EXIT_SUCCESS;
   }
 
 
-  if (argc > 1) {
-    rdg = rdg_new(argv[1]);
+  if ((argc - optind) > 3) {
+    print_usage();
+    return EXIT_FAILURE;
+  }
+
+
+  if ((argc - optind) > 1) {
+    rdg = rdg_new(argv[optind]);
 
     if (rdg == NULL) {
       return EXIT_FAILURE;
@@ -81,7 +125,7 @@ int main(int argc, char* argv[]) {
     if (argc == 2) {
       return rdg_generate_stdout(rdg);
     } else if (argc == 3) {
-      return rdg_generate_files(argv[2], rdg);
+      return rdg_generate_files(argv[optind + 1], rdg);
     }
   } else {
     while (getline(&line, &size, stdin) != -1) {
