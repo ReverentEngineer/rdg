@@ -233,9 +233,11 @@ next(struct rdg_range_node* node) {
 
 int rdg_range_next(struct rdg_range_iterator* iterator) {
   int has_next = 0;
-  iterator->node = next(iterator->node);
-  if (iterator->node != NULL) {
-    has_next = 1;
-   }
+  if (iterator->node) {
+    iterator->node = next(iterator->node);
+    if (iterator->node != NULL) {
+      has_next = 1;
+    }
+  }
   return has_next;
 }
