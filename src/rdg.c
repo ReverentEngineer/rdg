@@ -7,8 +7,6 @@
 #include "parser.tab.h"
 #include "lexer.yy.h"
 
-#define unlikely(x)    __builtin_expect(!!(x), 0)
-
 struct rdg {
   struct rdg_branch* trunk;
   struct rdg_branch_iterator* iterator;
