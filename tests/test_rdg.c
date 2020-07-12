@@ -75,8 +75,13 @@ int main() {
   assert(!rdg_generate(&data, &size, rdg));
   assert(data == NULL);
   assert(size == 0);
+  (void) rdg_free(rdg);
 
-
+  rdg = rdg_new("\\x00\\x01\\x02");
+  assert(rdg_generate(&data, &size, rdg));
+  assert(data != NULL);
+  assert(size == 3);
+  assert(memcmp("\x00\x01\x02", data, 3) == 0);
   (void) rdg_free(rdg);
 
   return 0;
