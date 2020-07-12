@@ -25,9 +25,15 @@ static void set_trunk(struct rdg* rdg, struct rdg_branch* branch) {
 }
 
 struct rdg* rdg_new(const char* expression) {
-  struct rdg* rdg = calloc(1, sizeof(rdg));
+  struct rdg* rdg = NULL;
+  if (strlen(expression) == 0) {
+    return NULL;
+  }
+
+  rdg = calloc(1, sizeof(rdg));
   yyscan_t scanner;
   if (yylex_init(&scanner)) {
+    free(rdg);
     return NULL;
   }
   YY_BUFFER_STATE buffer = yy_scan_string(expression, scanner);
