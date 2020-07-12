@@ -236,6 +236,7 @@ static int next(struct rdg_branch_iterator* node) {
       case NODE_RANGE:
         if (!next(node->next)) {
           if (rdg_range_next(node->range.iterator)) {
+            reset_iterators(node->next);
             result = 1;
           }
         } else {
@@ -245,10 +246,12 @@ static int next(struct rdg_branch_iterator* node) {
       case NODE_GROUP:
         if (!next(node->next)) {
           if (rdg_branch_next(node->group.branch_iterator)) {
+            reset_iterators(node->next);
             result = 1;
           } else {
             if (rdg_group_next(node->group.group_iterator)) {
               node->group.branch_iterator = rdg_branch_begin(rdg_group_get(node->group.group_iterator));
+              reset_iterators(node->next);
               result = 1;
             }
           }
