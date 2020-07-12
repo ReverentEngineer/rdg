@@ -30,7 +30,7 @@ struct rdg* rdg_new(const char* expression);
  *
  * @param[in] rdg A data generator
  * 
- * @return A result showing the data gnerated
+ * @return Whether a value was generated
  */
 int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg);
 

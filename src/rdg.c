@@ -53,13 +53,27 @@ int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg) {
       if (size != NULL) {
         *size = rdg_buffer_size(buffer);
       }
-      if (*result != NULL) {
+      if (result != NULL) {
         *result = rdg_buffer_release(buffer);
+      }
+      rc = 1;
+    } else {
+      if (size != NULL) {
+        *size = 0;
+      }
+      if (result != NULL) {
+        *result = NULL;
       }
     }
     if (!rdg_branch_next(rdg->iterator)) {
       rdg->iterator = NULL;
-      rc = 1;
+    }
+  } else {
+    if (size != NULL) {
+      *size = 0;
+    }
+    if (result != NULL) {
+      *result = NULL;
     }
   }
   return rc; 
