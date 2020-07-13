@@ -40,11 +40,12 @@
 %type <rangeval> range
 %type <rangeval> range_expression
 %type <strval> BYTE
-%type <charval>  atom
+%type <charval> literal
 %type <charval> LITERAL
-%type <groupval> group;
-%type <groupval> branches;
-%type <branchval> branch;
+%type <groupval> group
+%type <groupval> branches
+%type <branchval> branch
+%type <strval> error
 
 %%
 trunk:
@@ -52,7 +53,7 @@ trunk:
     set_trunk(rdg, $1);
 }
 ;
-atom:
+literal:
   LITERAL { $$ = $1; }
   | BYTE { $$ = rdg_byte_to_atom($1); } 
 ;
@@ -67,18 +68,18 @@ branches:
     | branches BRANCH branch { $$ = $1; (void) rdg_group_add_branch($1, $3); }
 ;
 branch:
-      atom { $$ = rdg_branch_new(); (void) rdg_branch_add_atom($$, $1); }
+      literal { $$ = rdg_branch_new(); (void) rdg_branch_add_atom($$, $1); }
       | range { $$ = rdg_branch_new(); (void) rdg_branch_add_range($$, $1); }
       | group { $$ = rdg_branch_new(); (void) rdg_branch_add_group($$, $1); }
-      | branch atom { $$ = $1; rdg_branch_add_atom($1, $2); }
+      | branch literal { $$ = $1; rdg_branch_add_atom($1, $2); }
       | branch range { $$ = $1; rdg_branch_add_range($1, $2); }
       | branch group { $$ = $1; rdg_branch_add_group($1, $2); }
 ;
 range_expression:
-  atom { $$ = rdg_range_new(); (void) rdg_range_append_atom($$, $1); }
-  | atom TO atom { $$ = rdg_range_new_inclusive($1, $3); }
-  | range_expression atom { $$ = $1; (void) rdg_range_append_atom($1, $2); }
-  | range_expression atom TO atom { 
+  literal { $$ = rdg_range_new(); (void) rdg_range_append_atom($$, $1); }
+  | literal TO literal { $$ = rdg_range_new_inclusive($1, $3); }
+  | range_expression literal { $$ = $1; (void) rdg_range_append_atom($1, $2); }
+  | range_expression literal TO literal { 
     struct rdg_range* b = rdg_range_new_inclusive($2, $4);
     (void) rdg_range_append($1, b);
     $$ = $1;
