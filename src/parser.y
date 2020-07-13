@@ -36,6 +36,7 @@
 %token BEGIN_GROUP
 %token END_GROUP
 %token BRANCH
+%token ERROR
 
 %type <rangeval> range
 %type <rangeval> range_expression
@@ -48,10 +49,9 @@
 %type <strval> error
 
 %%
-trunk:
-  branch { 
-    set_trunk(rdg, $1);
-}
+expression:
+  branch { set_trunk(rdg, $1); }
+  | branch error { rdg_branch_free($1); }
 ;
 literal:
   LITERAL { $$ = $1; }

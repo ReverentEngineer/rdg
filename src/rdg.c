@@ -38,7 +38,12 @@ struct rdg* rdg_new(const char* expression) {
   yyparse(scanner, rdg, set_trunk);
   yy_delete_buffer(buffer, scanner);
   yylex_destroy(scanner);
-  rdg->iterator = rdg_branch_begin(rdg->trunk);
+  if (rdg->trunk != NULL) {
+    rdg->iterator = rdg_branch_begin(rdg->trunk);
+  } else {
+    rdg_free(rdg);
+    rdg = NULL;
+  }
   return rdg;
 }
 

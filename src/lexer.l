@@ -20,4 +20,5 @@ BYTE    \\x[0-9a-fA-F][0-9a-fA-F]
 ")"         { return END_GROUP; }
 "-"         { return TO; }
 "."         { return ANY; }
+.           { yylval->strval = strdup(yytext); return ERROR; }
 %%

@@ -29,7 +29,7 @@ try:
 except StopIteration:
     pass
 
-generator = RDG("\x00(\x01\|\x02\)\x03")
+generator = RDG("\x00(\x01|\x02)\x03")
 assert next(generator) == b"\x00\x01\x03"
 assert next(generator) == b"\x00\x02\x03"
 

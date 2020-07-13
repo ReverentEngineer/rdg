@@ -79,8 +79,12 @@ static int RDG_init(RDG *self, PyObject *args, PyObject *kwds) {
     encoded = encode_expression(expression, length);
 
     self->rdg = rdg_new(encoded);
-
     free(encoded);
+    
+    if (self->rdg == NULL) {
+      PyErr_Format(PyExc_SyntaxError, "Invalid syntax.");
+      return -1;
+    }
 
     return 0;
 }
