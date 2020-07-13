@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
   }
 
   if (version) {
-    printf("rdg version\n"); 
+    printf("rdg version %s\n", rdg_get_version()); 
     return EXIT_SUCCESS;
   }
 

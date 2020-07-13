@@ -1,0 +1,6 @@
+#include "rdg.h"
+
+const char* rdg_get_version() {
+  static const char* version = "@PROJECT_VERSION@";
+  return version;
+}

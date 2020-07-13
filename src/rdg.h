@@ -17,6 +17,13 @@ extern "C" {
 struct rdg;
 
 /**
+ * @brief Gets the library version string
+ *
+ * @returns A pointer to the static version string
+ */
+const char* rdg_get_version(void);
+
+/**
  * @brief Creates a new data generator based off the provided expression
  *
  * Creates the rdg object that stores the state of the generated regular

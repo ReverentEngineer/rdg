@@ -3,6 +3,8 @@ flex_target(LEXER lexer.l ${CMAKE_CURRENT_BINARY_DIR}/lexer.yy.c
  COMPILE_FLAGS "-R --header-file=${CMAKE_CURRENT_BINARY_DIR}/lexer.yy.h")
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 
+configure_file(rdg_version.c.in rdg_version.c @ONLY)
+
 add_library(rdg 
   rdg_atom.c
   rdg_branch.c
@@ -10,6 +12,7 @@ add_library(rdg
   rdg_buffer.c
   rdg_range.c 
   rdg.c
+  ${CMAKE_CURRENT_BINARY_DIR}/rdg_version.c
   ${BISON_PARSER_OUTPUTS}
   ${FLEX_LEXER_OUTPUTS})
 

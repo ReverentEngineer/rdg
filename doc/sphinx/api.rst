@@ -5,6 +5,12 @@ API
 
    The regex data generator object representing the state of the generation.
 
+.. c:function:: const char* rdg_get_version()
+  
+    Gets the version string
+
+    :returns: A pointer to the static version string
+
 .. c:function:: struct rdg* rdg_new(const char *expression)
 
     Creates a new data generator based off the provided expression. The returned
