@@ -47,7 +47,7 @@ int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg);
  *
  * @return The number of permutations the data generator can create.
  */
-int  rdg_permutations(const struct rdg* rdg);
+size_t rdg_permutations(const struct rdg* rdg);
 
 /**
  * @brief Frees the data generator object

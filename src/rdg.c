@@ -82,7 +82,7 @@ int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg) {
   return rc; 
 }
 
-int rdg_permutations(const struct rdg* rdg) {
+size_t rdg_permutations(const struct rdg* rdg) {
   return rdg_branch_permutations(rdg->trunk);
 }
 
