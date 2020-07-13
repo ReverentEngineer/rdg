@@ -1,0 +1,70 @@
+=pod
+
+=head1 NAME
+
+rdg - Generate data from regular expression
+
+=head1 SYNOPSIS
+
+rdg [options] [expression output_directory]
+
+=head1 DESCRIPTION
+
+B<rdg> generates data based on a regular expression. If a B<output_directory>
+is not provided, the resulting data is written to stdout in a binary protocol
+that each permutation is written with a preceding 8-byte length. If a B<expression>
+is not provided, B<rdg> will read from stdin with each line is parsed as an
+B<expression> that will generate data.
+
+B<rdg> only supports a subset of regular expressions at this time. It supports
+grouping, boolean "or", and bracket expressions (with ranges).
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--help>
+
+Prints out a usage message
+
+=item B<--version>
+
+Prints out the version
+
+=back
+
+=head1 EXAMPLES
+
+To generate files based on a regular expression in a directory:
+
+=over 8
+
+$ rdg "my(expression|statement)[123]" ./myoutputdir
+
+=back
+
+To stream an expression to stdout:
+
+=over 8
+
+$ rdg "my(expression|statement)[123]" | data_handling_program
+
+=back
+
+To stream from stdin to stdout:
+
+=over 8
+
+$ expression_generator |  rdg | data_handling_program
+
+=back
+
+=head1 BUGS
+
+Bugs can be reported here: https://github.com/ReverentEngineer/rdg/issues
+
+=head1 AUTHORS
+
+Jeff Caffrey-Hill <jeff@reverentengineer.com>
+
+=cut

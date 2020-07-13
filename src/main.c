@@ -59,7 +59,7 @@ static int rdg_generate_files(const char* dirname, struct rdg* rdg) {
 }
 
 static void print_usage(void) {
-  printf("usage: rdg [options] [ <expression> <directory> ]\n\n");
+  printf("usage: rdg [options] [<expression> <output_directory>]\n\n");
   printf("options:\n");
   printf("   --%-10s %s\n", "version", "Print version and exit");
   printf("   --%-10s %s\n", "help", "Print usage information and exit");

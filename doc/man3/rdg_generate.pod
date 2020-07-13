@@ -1,0 +1,47 @@
+=pod
+
+=head1 NAME
+
+rdg_new, rdg_generate, rdg_permutations, rdg_free
+
+=head1 SYNOPSIS
+
+  #include <rdg.h>
+ 
+  struct rdg* rdg_new(const char* expression);
+
+  int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg);
+
+  int rdg_permutations(const struct rdg* rdg);
+  
+  void rdg_free(struct rdg* rdg);
+
+=head1 DESCRIPTION
+
+rdg_new() generates a data generator from the provided I<expression>. It
+maintains state iterators to generate through all permutations.
+
+rdg_generate() generates a single permutation and iterates the state of
+the B<rdg>.
+
+rdg_permutations() determines how many permutations the B<rdg> can create.
+
+rdg_free() frees B<rdg> and its underlying components.
+
+=head1 RETURN VALUES
+
+rdg_new() returns a new rdg instance.
+
+rdg_generate() returns 1 when data is generated and 0 its out of permutations.
+
+rdg_permutations() returns the total number of permutations.
+
+=head1 BUGS
+
+Bugs can be reported here: https://github.com/ReverentEngineer/rdg/issues
+
+=head1 AUTHORS
+
+Jeff Caffrey-Hill <jeff@reverentengineer.com>
+
+=cut
