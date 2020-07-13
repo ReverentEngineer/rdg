@@ -12,7 +12,7 @@ int main() {
   unsigned char *data = NULL;
   size_t size = 0;
   
-  rdg = rdg_new("test[123]");
+  rdg = rdg_new("test[1-3]");
   assert(rdg != NULL);
   assert(rdg_permutations(rdg) == 3);
 
@@ -33,7 +33,7 @@ int main() {
   assert(size == 0);
   (void) rdg_free(rdg);
 
-  rdg = rdg_new("test[123][abc]");
+  rdg = rdg_new("test[123][a-c]");
   assert(rdg != NULL);
   assert(rdg_permutations(rdg) == 9);
   assert(rdg_generate(&data, &size, rdg));
@@ -75,6 +75,17 @@ int main() {
   assert(!rdg_generate(&data, &size, rdg));
   assert(data == NULL);
   assert(size == 0);
+  (void) rdg_free(rdg);
+
+  rdg = rdg_new("\\x00(\\x01|\\x02)\\x03");
+  assert(rdg_generate(&data, &size, rdg));
+  assert(data != NULL);
+  assert(size == 3);
+  assert(memcmp("\x00\x01\x03", data, 3) == 0);
+  assert(rdg_generate(&data, &size, rdg));
+  assert(data != NULL);
+  assert(size == 3);
+  assert(memcmp("\x00\x02\x03", data, 3) == 0);
   (void) rdg_free(rdg);
 
   rdg = rdg_new("\\x00\\x01\\x02");
