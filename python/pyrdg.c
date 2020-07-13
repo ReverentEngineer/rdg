@@ -4,6 +4,18 @@
 
 #include "rdg.h"
 
+static const char rdg_doc[] = "Generates data based upon a regular expression\n"
+"\n"
+"Args:\n"
+"    expression (str): Regular expression to generate\n"
+"\n"
+"Yields:\n"
+"    bytes: The next permutation generated\n"
+"\n"
+"Examples:\n"
+"    >>> print([permutation for permutation in RDG(\"test[123]\")])\n"
+"    [b\'test1\', b\'test2\', b\'test3\']";
+
 typedef struct {
   PyObject_HEAD
   struct rdg* rdg;
@@ -107,7 +119,7 @@ static PyObject* RDG_next(RDG* self) {
 static PyTypeObject RDGType  = {
     PyVarObject_HEAD_INIT(NULL, 0)
     .tp_name = "rdg.RDG",
-    .tp_doc = "Regex data generator",
+    .tp_doc = rdg_doc,
     .tp_basicsize = sizeof(RDG),
     .tp_itemsize = 0,
     .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,
