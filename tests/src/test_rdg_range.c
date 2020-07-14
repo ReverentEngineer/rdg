@@ -33,5 +33,7 @@ int main() {
   assert(!rdg_range_next(it));
   (void) rdg_range_append(range1, range2);
   assert(rdg_range_permutations(range1) == 28);
+  rdg_range_free(range1);
+  rdg_range_free(range2);
   return 0;
 }

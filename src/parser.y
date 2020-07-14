@@ -51,11 +51,11 @@
 %%
 expression:
   branch { set_trunk(rdg, $1); }
-  | branch error { rdg_branch_free($1); }
+  | branch error { rdg_branch_free($1); free($2); }
 ;
 literal:
   LITERAL { $$ = $1; }
-  | BYTE { $$ = rdg_byte_to_atom($1); } 
+  | BYTE { $$ = rdg_byte_to_atom($1); free($1); } 
 ;
 range:
   BEGIN_BRACKET range_expression END_BRACKET { $$ = $2; } 

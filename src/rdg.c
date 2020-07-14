@@ -91,5 +91,6 @@ void rdg_free(struct rdg* rdg) {
     if (rdg->trunk) {
       rdg_branch_free(rdg->trunk);
     }
+    free(rdg);
   }
 }

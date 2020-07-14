@@ -23,5 +23,6 @@ int main() {
   assert(rdg_buffer_size(buffer) == 10);
   data = rdg_buffer_release(buffer);
   assert(memcmp(output, data, 10) == 0);
+  free(data);
   return 0;
 }
