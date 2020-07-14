@@ -129,7 +129,7 @@ int main(int argc, char* argv[]) {
   }
 
 
-  if ((argc - optind) > 1) {
+  if ((argc - optind) > 0) {
     rdg = rdg_new(argv[optind]);
 
     if (rdg == NULL) {
