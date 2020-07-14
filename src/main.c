@@ -7,19 +7,33 @@
 #include <stdlib.h>
 #include <getopt.h>
 #include <string.h>
-
-static void rdg_protocol_write(const unsigned char *data, size_t size) {
-  uint64_t protocol_size = __builtin_bswap64(size);
-  fwrite(&protocol_size, sizeof(uint64_t), 1, stdout);
-  fwrite(data, size, 1, stdout);
-}
+#include <math.h>
 
 static int rdg_generate_stdout(struct rdg* rdg) {
   unsigned char* data = NULL;
   size_t size = 0;
+
+  fputc(0x30, stdout);
+  fputc(0x80, stdout);
+  
   while(rdg_generate(&data, &size, rdg)) {
-    rdg_protocol_write(data, size);
+    fputc(0x04, stdout);
+    if (size < 128) {
+      fputc(size & 0x7f, stdout);
+    } else {
+      int bits = ceil(log2(size));
+      int bytes = (bits % 8 == 0) ? (bits / 8) : ((bits / 8) + 1);
+      for (int i = bytes - 1; i >= 0; i -= 1) {
+        uint8_t byte = *(((uint8_t*)&size) + i);
+        fputc(byte, stdout);
+      }    
+      fwrite(data, size, 1, stdout);
+    }
+    fwrite(data, size, 1, stdout);
+    free(data);
   }
+  fputc(0x00, stdout);
+  fputc(0x00, stdout);
   rdg_free(rdg);
   return EXIT_SUCCESS;
 }
