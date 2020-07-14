@@ -42,7 +42,7 @@ struct rdg_range* rdg_range_new(void) {
 }
 
 struct rdg_range* rdg_range_new_inclusive(unsigned char from, unsigned char to) {
-  struct rdg_range* range = malloc(sizeof(struct rdg_range));
+  struct rdg_range* range = calloc(1, sizeof(struct rdg_range));
   if (to <= from) {
     abort();
   }
