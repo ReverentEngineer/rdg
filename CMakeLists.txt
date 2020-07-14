@@ -4,6 +4,8 @@ enable_testing()
 project(rdg C)
 set(PROJECT_VERSION 1.0.0)
 
+include(CTest)
+
 if (APPLE)
   set(CMAKE_MACOSX_RPATH FALSE)
 endif()
