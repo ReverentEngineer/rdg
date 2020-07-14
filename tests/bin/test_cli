@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ $# -ne 2 ]]; then
+  echo "usage: test_cli <path_to_cli> <test_data_dir>"
+  exit 1;
+fi
+
+RDG=$1
+DATADIR=$2
+
+TMPDIR=$(mktemp -d)
+trap "rm -rf $TMPDIR && echo 'Test artifacts cleared.'" EXIT
+
+$RDG "test[1-3]" > $TMPDIR/actual1
+
+diff $DATADIR/expected1 $TMPDIR/actual1
+if [[ $? -ne 0 ]]; then
+  echo "Expected"
+  hexdump -C $DATADIR/expected1
+  echo "Actual"
+  hexdump -C $TMPDIR/actual1
+  echo "Test failed.";
+  exit 1;
+fi
