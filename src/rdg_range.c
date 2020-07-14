@@ -42,10 +42,11 @@ struct rdg_range* rdg_range_new(void) {
 }
 
 struct rdg_range* rdg_range_new_inclusive(unsigned char from, unsigned char to) {
-  struct rdg_range* range = calloc(1, sizeof(struct rdg_range));
+  struct rdg_range* range = NULL;
   if (to <= from) {
-    abort();
+    return NULL;
   }
+  range = calloc(1, sizeof(struct rdg_range));
   for (int i = 0; i <= to - from; i++) {
     rdg_range_append_atom(range, from + i);
   }
