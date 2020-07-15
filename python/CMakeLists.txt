@@ -12,6 +12,7 @@ if(PYTHONINTERP_FOUND AND PYTHONLIBS_FOUND)
     set_directory_properties(PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
     install(CODE "execute_process(COMMAND ${PYTHON_EXECUTABLE}  setup.py install
+      --prefix=\${CMAKE_INSTALL_PREFIX}
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})")
 
     add_test(NAME test_pyrdg COMMAND ${PYTHON_EXECUTABLE} -m unittest discover 
