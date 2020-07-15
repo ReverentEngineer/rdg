@@ -18,3 +18,8 @@ add_subdirectory(src)
 add_subdirectory(tests)
 add_subdirectory(doc)
 add_subdirectory(python)
+
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_PACKAGE_NAME ${CMAKE_PROJECT_NAME})
+set(CPACK_PACKAGE_RELEASE 1)
+include(CPack)
