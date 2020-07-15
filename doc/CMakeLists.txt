@@ -14,10 +14,13 @@ if (UNIX)
   
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/rdg_generate.3 DESTINATION share/man/man3)
 
-    foreach (MANALIAS rdg_new.3 rdg_permutations.3 rdg_free.3)
-      install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E create_symlink 
-      rdg_generate.3 \${CMAKE_INSTALL_PREFIX}/share/man/man3/${MANALIAS})")
-        install(CODE "message(STATUS \"Created man alias: rdg_generate.3 -> ${MANALIAS}}\")")
+    macro(install_symlink path link)
+      install(CODE "execute_process(COMMAND \${CMAKE_COMMAND} -E create_symlink ${path} \${CMAKE_INSTALL_PREFIX}/${link})")
+      install(CODE "message(STATUS \"Created symlink: ${link} -> ${path}\")")
+    endmacro(install_symlink)
+
+    foreach (LINK rdg_new.3 rdg_permutations.3 rdg_free.3)
+        install_symlink(rdg_generate.3 share/man/man3/${LINK})
     endforeach()
 
     add_custom_target(man ALL DEPENDS rdg.1 rdg_generate.3)
