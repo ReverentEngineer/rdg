@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line Interface &#8212; RDG  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Expressions" href="expressions.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="command-line-interface">
+<h1>Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>RDG provides a command line interface for generating data without having
+to interface programmatically.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The following is the usage information:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>usage: rdg <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>expression output_directory<span class="o">]</span>
+
+options:
+   --version   Print version and <span class="nb">exit</span>
+   --help      Print usage information and <span class="nb">exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>When provided with an <em>expression</em> and an <em>output_directory</em>, <strong>rdg</strong> will
+write <em>n</em> files into the direct named “1” through “<em>n</em>” where <em>n</em> is the number
+of permutations that exists for the <em>expression</em>.</p>
+<p>When provided with only an <em>expression</em>, <strong>rdg</strong> will write the generated
+data to <em>stdout</em> using the protocol described below.</p>
+<p>When provided with no arguments, <strong>rdg</strong> will read from line delineated
+expressions from <em>stdin</em> and write the generated data to <em>stdout</em> using
+the protocol described in the next section.</p>
+</div>
+<div class="section" id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h2>
+<p>In order to allow users to make uses of pipes, <strong>rdg</strong> implements a basic
+protocol for permutations written to <em>stdout</em>. The protocol is described in
+<a class="reference external" href="https://en.wikipedia.org/wiki/ASN.1">ASN.1</a> below and encoded with the <a class="reference external" href="https://en.wikipedia.org/wiki/X.690#BER_encoding">Basic Encoding Rules</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Permutations</span> <span class="p">::</span><span class="o">=</span> <span class="n">SEQUENCE</span> <span class="p">{</span>
+    <span class="n">Permutation</span> <span class="n">OCTET</span> <span class="n">STRING</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>To generate files based on a regular expression in a directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rdg <span class="s2">&quot;my(expression|statement)[123]&quot;</span> ./myoutputdir
+</pre></div>
+</div>
+<p>To stream an expression to stdout:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rdg <span class="s2">&quot;my(expression|statement)[123]&quot;</span> <span class="p">|</span> data_handling_program
+</pre></div>
+</div>
+<p>To stream from stdin to stdout:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>expression_generator <span class="p">|</span>  rdg <span class="p">|</span> data_handling_program
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">RDG</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expressions.html">Expressions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#protocol">Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python Bindings</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="expressions.html" title="previous chapter">Expressions</a></li>
+      <li>Next: <a href="api.html" title="next chapter">API</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Jeff Caffrey-Hill.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/cli.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
