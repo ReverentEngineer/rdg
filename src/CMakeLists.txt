@@ -19,6 +19,9 @@ add_library(rdg
 add_executable(rdg-bin main.c)
 set_target_properties(rdg-bin PROPERTIES OUTPUT_NAME rdg)
 target_link_libraries(rdg-bin rdg)
+if(NOT WIN32)
+    target_link_libraries(rdg  m)
+endif()
 
 install(TARGETS rdg rdg-bin 
   RUNTIME DESTINATION bin
