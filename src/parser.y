@@ -61,7 +61,7 @@ range:
   BEGIN_BRACKET range_expression END_BRACKET { $$ = $2; } 
 ;
 group:
-     BEGIN_GROUP branches END_GROUP { $$ = $2 }
+     BEGIN_GROUP branches END_GROUP { $$ = $2; }
 ;
 branches:
      branch { $$ = rdg_group_new(); (void) rdg_group_add_branch($$, $1); }
