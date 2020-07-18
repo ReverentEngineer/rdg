@@ -20,5 +20,9 @@ add_executable(rdg-bin main.c)
 set_target_properties(rdg-bin PROPERTIES OUTPUT_NAME rdg)
 target_link_libraries(rdg-bin rdg)
 
-install(TARGETS rdg rdg-bin RUNTIME DESTINATION bin LIBRARY DESTINATION lib)
+install(TARGETS rdg rdg-bin 
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib)
+
 install(FILES rdg.h DESTINATION include)
