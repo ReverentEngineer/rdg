@@ -3,7 +3,7 @@
 %parse-param { struct rdg* rdg }
 %parse-param { set_trunk_cb set_trunk }
 
-%{
+%code requires {
   #include <stdio.h>
   #include "rdg.h"
   #include "rdg_atom.h"
@@ -17,8 +17,9 @@
   #endif
   int yylex();
   int yyerror(yyscan_t scanner, struct rdg* rdg, set_trunk_cb set_trunk, const char *msg);
-%}
-%pure-parser
+}
+
+%define api.pure
 %union {
   struct rdg_range* rangeval;
   char* strval;

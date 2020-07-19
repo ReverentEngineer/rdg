@@ -10,7 +10,7 @@ if (APPLE)
   set(CMAKE_MACOSX_RPATH FALSE)
 endif()
 
-find_package(BISON REQUIRED)
+find_package(BISON 2.6.0 REQUIRED)
 find_package(FLEX REQUIRED)
 
 include_directories(src)
