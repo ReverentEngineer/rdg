@@ -10,7 +10,7 @@
 #include <math.h>
 
 static int rdg_generate_stdout(struct rdg* rdg) {
-  unsigned char* data = NULL;
+  const unsigned char* data = NULL;
   size_t size = 0;
 
   fputc(0x30, stdout);
@@ -30,7 +30,6 @@ static int rdg_generate_stdout(struct rdg* rdg) {
       fwrite(data, size, 1, stdout);
     }
     fwrite(data, size, 1, stdout);
-    free(data);
   }
   fputc(0x00, stdout);
   fputc(0x00, stdout);
@@ -42,7 +41,7 @@ static int rdg_generate_files(const char* dirname, struct rdg* rdg) {
   char filename[255];
   FILE *fp = NULL;
   DIR *dir = NULL;
-  unsigned char* data = NULL;
+  const unsigned char* data = NULL;
   size_t size = 0;
   size_t counter = 0;
   if ((dir = opendir(dirname)) == NULL) {
@@ -66,7 +65,6 @@ static int rdg_generate_files(const char* dirname, struct rdg* rdg) {
       return EXIT_FAILURE;
     }
     (void) fclose(fp);
-    (void) free(data);
   }
   printf("%lu file(s) created.\n", counter);
   return EXIT_SUCCESS;

@@ -17,7 +17,7 @@ int main() {
     struct rdg_range* range = NULL;
     struct rdg_branch_iterator *iter = NULL;
     struct rdg_buffer *buffer = NULL;
-    unsigned char* data = NULL;
+    const unsigned char* data = NULL;
     trunk = rdg_branch_new();
     assert(trunk != NULL);
     
@@ -57,19 +57,23 @@ int main() {
     iter = rdg_branch_begin(trunk);
     assert(iter != NULL);
 
-    assert((buffer = rdg_branch_get(iter)) != NULL);
-    data = rdg_buffer_release(buffer);
+    buffer = rdg_buffer_new(rdg_branch_max_size(trunk));
+    assert(buffer != NULL);
+    
+    (void) rdg_buffer_reset(buffer); 
+    (void) rdg_branch_get(buffer, iter);
+    data = rdg_buffer_get(buffer);
     assert(memcmp(data, "abca1", 5) == 0);
-    (void) free(data);
 
     assert(rdg_branch_next(iter));
-    assert((buffer = rdg_branch_get(iter)) != NULL);
-    data = rdg_buffer_release(buffer);
+    (void) rdg_buffer_reset(buffer); 
+    (void) rdg_branch_get(buffer, iter);
+    data = rdg_buffer_get(buffer);
     assert(memcmp(data, "abcaZ", 5) == 0);
-    (void) free(data);
     
     assert(rdg_branch_next(iter));
- 
+
+    (void) rdg_buffer_free(buffer); 
     (void) rdg_branch_free(trunk);
     return 0;
 }

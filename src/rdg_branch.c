@@ -176,7 +176,7 @@ struct rdg_branch_iterator* rdg_branch_begin(struct rdg_branch* branch) {
 }
 
 
-static void get(struct rdg_buffer* buffer, struct rdg_branch_iterator* node) {
+void rdg_branch_get(struct rdg_buffer* buffer, struct rdg_branch_iterator* node) {
   unsigned char value = 0;
   struct rdg_branch* branch = NULL;
   struct rdg_buffer* branch_permutation = NULL;
@@ -192,22 +192,12 @@ static void get(struct rdg_buffer* buffer, struct rdg_branch_iterator* node) {
         rdg_buffer_append(buffer, &value, 1);
         break;
       case NODE_GROUP:
-        branch_permutation = rdg_branch_get(node->group.branch_iterator);
-        size = rdg_buffer_size(branch_permutation);
-        data = rdg_buffer_release(branch_permutation);
-        rdg_buffer_append(buffer, data, size);
-        free(data);
+        rdg_branch_get(buffer, node->group.branch_iterator);
         break;
     }
-    get(buffer, node->next);
+    rdg_branch_get(buffer, node->next);
   }
  
-}
-
-struct rdg_buffer* rdg_branch_get(struct rdg_branch_iterator* iterator) {
-  struct rdg_buffer* buffer = rdg_buffer_new();
-  get(buffer, iterator);
-  return buffer;
 }
 
 static void reset_iterators(struct rdg_branch_iterator* node) {
@@ -270,7 +260,7 @@ int rdg_branch_next(struct rdg_branch_iterator* iterator) {
 }
 
 
-int rdg_branch_permutations(struct rdg_branch* branch) {
+int rdg_branch_permutations(const struct rdg_branch* branch) {
   struct node* current = branch->first;
   int size = 0;
   while (current != NULL) {
@@ -303,3 +293,36 @@ int rdg_branch_permutations(struct rdg_branch* branch) {
   return size;
 }
 
+int rdg_branch_max_size(const struct rdg_branch* branch) {
+  struct node* current = branch->first;
+  int size = 0;
+  while (current != NULL) {
+    if (unlikely(size == 0)) {
+      switch (current->type) {
+        case NODE_ATOM:
+          size = current->value.atom.size;
+          break;
+        case NODE_RANGE:
+          size = 1;
+          break;
+        case NODE_GROUP:
+          size = rdg_group_max_size(current->value.group);
+          break;
+      } 
+    } else {
+      switch (current->type) {
+        case NODE_ATOM:
+          size += current->value.atom.size;
+          break;
+        case NODE_RANGE:
+          size += 1;
+          break;
+        case NODE_GROUP:
+          size += rdg_group_max_size(current->value.group);
+          break;
+      }
+    }
+    current = current->next;
+  } 
+  return size;
+}

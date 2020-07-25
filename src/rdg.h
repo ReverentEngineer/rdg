@@ -46,7 +46,7 @@ struct rdg* rdg_new(const char* expression);
  * 
  * @return Whether a value was generated
  */
-int rdg_generate(unsigned char **result, size_t *size, struct rdg* rdg);
+int rdg_generate(const unsigned char **result, size_t *size, struct rdg* rdg);
 
 /**
  * @brief Calculates the number of permutations

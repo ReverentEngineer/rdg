@@ -73,5 +73,13 @@ struct rdg_branch* rdg_group_get(const struct rdg_group_iterator* iterator);
  */
 int rdg_group_permutations(const struct rdg_group* group);
 
+/**
+ * @brief Gets the maximum size in the group
+ *
+ * @param[in] group The group
+ *
+ * @returns The maxmimum size of the group
+ */
+int rdg_group_max_size(const struct rdg_group* group);
 
 #endif /* __GROUP_H__ */

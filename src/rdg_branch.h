@@ -77,17 +77,27 @@ int rdg_branch_next(struct rdg_branch_iterator* iterator);
 /**
  * @brief Retrieves the current permutation of the branch
  *
+ * @param[in,out] buffer Buffer to fill
  * @param[in] iterator Branch iterator
  *
  * @returns A buffer containing the current permutation
  */
-struct rdg_buffer* rdg_branch_get(struct rdg_branch_iterator* iterator);
+void rdg_branch_get(struct rdg_buffer* buffer, struct rdg_branch_iterator* iterator);
 
 /**
  * @brief Gets the number of permutations in a branch
  *
  * @returns Number of permutations
  */
-int rdg_branch_permutations(struct rdg_branch* branch);
+int rdg_branch_permutations(const struct rdg_branch* branch);
+
+/**
+ * @brief Gets the maximum size of the branch
+ *
+ * @param[in] branch The branch
+ *
+ * @returns Maximum size of the branch
+ */
+int rdg_branch_max_size(const struct rdg_branch* branch);
 
 #endif /* __BRANCH_H__ */

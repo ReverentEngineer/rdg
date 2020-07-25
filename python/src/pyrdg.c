@@ -102,7 +102,7 @@ static int RDG_init(RDG *self, PyObject *args, PyObject *kwds) {
 }
 
 static PyObject* RDG_next(RDG* self) {
-  unsigned char *data = NULL;
+  const unsigned char *data = NULL;
   size_t size = 0;
 
   rdg_generate(&data, &size, self->rdg);

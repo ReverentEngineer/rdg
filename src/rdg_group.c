@@ -86,3 +86,24 @@ int rdg_group_permutations(const struct rdg_group* group) {
   }
   return size;
 }
+
+int rdg_group_max_size(const struct rdg_group* group) {
+  struct rdg_group_member* member = NULL;
+  int size = 0;
+  int branch_size = 0;
+  if (group->first != NULL) {
+    branch_size = rdg_branch_max_size(group->first->branch);
+    if (branch_size > size) {
+      size = branch_size;
+    }
+    member = group->first->next;
+    while (member != NULL) {
+      branch_size = rdg_branch_max_size(group->first->branch);
+      if (branch_size > size) {
+        size = branch_size;
+      }
+      member = member->next;
+    }
+  }
+  return size;
+}
