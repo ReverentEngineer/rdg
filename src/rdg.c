@@ -28,7 +28,7 @@ struct rdg* rdg_new(const char* expression) {
     return NULL;
   }
 
-  rdg = calloc(1, sizeof(rdg));
+  rdg = calloc(1, sizeof(struct rdg));
   yyscan_t scanner;
   if (yylex_init(&scanner)) {
     free(rdg);
