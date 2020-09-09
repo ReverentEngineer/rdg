@@ -24,6 +24,8 @@ if(NOT WIN32)
 endif()
 
 install(TARGETS rdg rdg-bin 
+  EXPORT
+  RDG
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib)

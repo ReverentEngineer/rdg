@@ -19,6 +19,10 @@ add_subdirectory(tests)
 add_subdirectory(doc)
 add_subdirectory(python)
 
+install(EXPORT RDG DESTINATION cmake)
+configure_file(RDGConfig.cmake.in RDGConfig.cmake)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/RDGConfig.cmake DESTINATION cmake)
+
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 set(CPACK_PACKAGE_NAME ${CMAKE_PROJECT_NAME})
 set(CPACK_PACKAGE_RELEASE 1)
