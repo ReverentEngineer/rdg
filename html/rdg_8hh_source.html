@@ -70,37 +70,34 @@ $(function() {
 <div class="title">rdg.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="rdg_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef __RDG_HH__</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define __RDG_HH__</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="rdg_8h.html">rdg.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;rdg.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_r_d_g.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_r_d_g.html">RDG</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_r_d_g.html#a6f36fd7123c95c32f05fe6f90adf32e6">RDG</a>(<span class="keyword">const</span> std::string&amp; expression);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_r_d_g.html">RDG</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string <a class="code" href="class_r_d_g.html#a5cf2e86de5fbc6737a27b75ab6bfed96">generate</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="class_r_d_g.html#a6a9fe90da665fce16420ec8842bf7ead">permutations</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    rdg* m_rdg;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_r_d_g.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_r_d_g.html">RDG</a> {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_r_d_g.html#a6f36fd7123c95c32f05fe6f90adf32e6">RDG</a>(<span class="keyword">const</span> std::string&amp; expression);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_r_d_g.html">RDG</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::string <a class="code" href="class_r_d_g.html#a5cf2e86de5fbc6737a27b75ab6bfed96">generate</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="class_r_d_g.html#a6a9fe90da665fce16420ec8842bf7ead">permutations</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __RDG_HH__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    rdg* m_rdg;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __RDG_HH__ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_r_d_g_html_a6f36fd7123c95c32f05fe6f90adf32e6"><div class="ttname"><a href="class_r_d_g.html#a6f36fd7123c95c32f05fe6f90adf32e6">RDG::RDG</a></div><div class="ttdeci">RDG(const std::string &amp;expression)</div><div class="ttdoc">Constructs a regex data generator.</div></div>
 <div class="ttc" id="aclass_r_d_g_html_a6a9fe90da665fce16420ec8842bf7ead"><div class="ttname"><a href="class_r_d_g.html#a6a9fe90da665fce16420ec8842bf7ead">RDG::permutations</a></div><div class="ttdeci">size_t permutations() const</div><div class="ttdoc">Gets the number of permutations.</div></div>
-<div class="ttc" id="aclass_r_d_g_html"><div class="ttname"><a href="class_r_d_g.html">RDG</a></div><div class="ttdoc">A regex (regula expression) data generator.</div><div class="ttdef"><b>Definition:</b> rdg.hh:18</div></div>
-<div class="ttc" id="ardg_8h_html"><div class="ttname"><a href="rdg_8h.html">rdg.h</a></div><div class="ttdoc">Public interface for librdg.</div></div>
+<div class="ttc" id="aclass_r_d_g_html"><div class="ttname"><a href="class_r_d_g.html">RDG</a></div><div class="ttdoc">A regex (regula expression) data generator.</div><div class="ttdef"><b>Definition:</b> rdg.hh:23</div></div>
 <div class="ttc" id="aclass_r_d_g_html_a5cf2e86de5fbc6737a27b75ab6bfed96"><div class="ttname"><a href="class_r_d_g.html#a5cf2e86de5fbc6737a27b75ab6bfed96">RDG::generate</a></div><div class="ttdeci">std::string generate()</div><div class="ttdoc">Generates the next result from the data generator.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

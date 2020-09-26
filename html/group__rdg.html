@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>rdg: /Users/jeffreyhill/Workspace/rdg/src/rdg.h File Reference</title>
+<title>rdg: librdg</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,6 +46,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,48 +61,40 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">rdg.h File Reference</div>  </div>
+<div class="title">librdg</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Public interface for librdg.  
+<p>Documentation to core librdg usage.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-</div>
-<p><a href="rdg_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rdg_8h.html#a7fabe0b6c2ece458dc2eb5dbc65b8b9c">rdg_get_version</a> (void)</td></tr>
-<tr class="memdesc:a7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the library version string.  <a href="rdg_8h.html#a7fabe0b6c2ece458dc2eb5dbc65b8b9c">More...</a><br /></td></tr>
-<tr class="separator:a7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac85b3e0851270046e8a58a2193fa92b0"><td class="memItemLeft" align="right" valign="top">struct rdg *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rdg_8h.html#ac85b3e0851270046e8a58a2193fa92b0">rdg_new</a> (const char *expression)</td></tr>
-<tr class="memdesc:ac85b3e0851270046e8a58a2193fa92b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new data generator based off the provided expression.  <a href="rdg_8h.html#ac85b3e0851270046e8a58a2193fa92b0">More...</a><br /></td></tr>
-<tr class="separator:ac85b3e0851270046e8a58a2193fa92b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a752c2cd05d61467ef661295025bd0214"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rdg_8h.html#a752c2cd05d61467ef661295025bd0214">rdg_generate</a> (const unsigned char **result, size_t *size, struct rdg *rdg)</td></tr>
-<tr class="memdesc:a752c2cd05d61467ef661295025bd0214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the next result from the data generator.  <a href="rdg_8h.html#a752c2cd05d61467ef661295025bd0214">More...</a><br /></td></tr>
-<tr class="separator:a752c2cd05d61467ef661295025bd0214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28718022d13c6415408101080cffd914"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rdg_8h.html#a28718022d13c6415408101080cffd914">rdg_permutations</a> (const struct rdg *rdg)</td></tr>
-<tr class="memdesc:a28718022d13c6415408101080cffd914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of permutations.  <a href="rdg_8h.html#a28718022d13c6415408101080cffd914">More...</a><br /></td></tr>
-<tr class="separator:a28718022d13c6415408101080cffd914"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ca3b777f0cd64967057fefec0eb533c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rdg_8h.html#a8ca3b777f0cd64967057fefec0eb533c">rdg_free</a> (struct rdg *rdg)</td></tr>
-<tr class="memdesc:a8ca3b777f0cd64967057fefec0eb533c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the data generator object.  <a href="rdg_8h.html#a8ca3b777f0cd64967057fefec0eb533c">More...</a><br /></td></tr>
-<tr class="separator:a8ca3b777f0cd64967057fefec0eb533c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rdg.html#ga7fabe0b6c2ece458dc2eb5dbc65b8b9c">rdg_get_version</a> (void)</td></tr>
+<tr class="memdesc:ga7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the library version string.  <a href="group__rdg.html#ga7fabe0b6c2ece458dc2eb5dbc65b8b9c">More...</a><br /></td></tr>
+<tr class="separator:ga7fabe0b6c2ece458dc2eb5dbc65b8b9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac85b3e0851270046e8a58a2193fa92b0"><td class="memItemLeft" align="right" valign="top">struct rdg *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rdg.html#gac85b3e0851270046e8a58a2193fa92b0">rdg_new</a> (const char *expression)</td></tr>
+<tr class="memdesc:gac85b3e0851270046e8a58a2193fa92b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new data generator based off the provided expression.  <a href="group__rdg.html#gac85b3e0851270046e8a58a2193fa92b0">More...</a><br /></td></tr>
+<tr class="separator:gac85b3e0851270046e8a58a2193fa92b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga752c2cd05d61467ef661295025bd0214"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rdg.html#ga752c2cd05d61467ef661295025bd0214">rdg_generate</a> (const unsigned char **result, size_t *size, struct rdg *rdg)</td></tr>
+<tr class="memdesc:ga752c2cd05d61467ef661295025bd0214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the next result from the data generator.  <a href="group__rdg.html#ga752c2cd05d61467ef661295025bd0214">More...</a><br /></td></tr>
+<tr class="separator:ga752c2cd05d61467ef661295025bd0214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28718022d13c6415408101080cffd914"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rdg.html#ga28718022d13c6415408101080cffd914">rdg_permutations</a> (const struct rdg *rdg)</td></tr>
+<tr class="memdesc:ga28718022d13c6415408101080cffd914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of permutations.  <a href="group__rdg.html#ga28718022d13c6415408101080cffd914">More...</a><br /></td></tr>
+<tr class="separator:ga28718022d13c6415408101080cffd914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ca3b777f0cd64967057fefec0eb533c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rdg.html#ga8ca3b777f0cd64967057fefec0eb533c">rdg_free</a> (struct rdg *rdg)</td></tr>
+<tr class="memdesc:ga8ca3b777f0cd64967057fefec0eb533c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the data generator object.  <a href="group__rdg.html#ga8ca3b777f0cd64967057fefec0eb533c">More...</a><br /></td></tr>
+<tr class="separator:ga8ca3b777f0cd64967057fefec0eb533c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Public interface for librdg. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a8ca3b777f0cd64967057fefec0eb533c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca3b777f0cd64967057fefec0eb533c">&#9670;&nbsp;</a></span>rdg_free()</h2>
+<p>Documentation to core librdg usage. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga8ca3b777f0cd64967057fefec0eb533c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ca3b777f0cd64967057fefec0eb533c">&#9670;&nbsp;</a></span>rdg_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,8 +119,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a752c2cd05d61467ef661295025bd0214"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a752c2cd05d61467ef661295025bd0214">&#9670;&nbsp;</a></span>rdg_generate()</h2>
+<a id="ga752c2cd05d61467ef661295025bd0214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga752c2cd05d61467ef661295025bd0214">&#9670;&nbsp;</a></span>rdg_generate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,8 +165,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7fabe0b6c2ece458dc2eb5dbc65b8b9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fabe0b6c2ece458dc2eb5dbc65b8b9c">&#9670;&nbsp;</a></span>rdg_get_version()</h2>
+<a id="ga7fabe0b6c2ece458dc2eb5dbc65b8b9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7fabe0b6c2ece458dc2eb5dbc65b8b9c">&#9670;&nbsp;</a></span>rdg_get_version()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,8 +186,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac85b3e0851270046e8a58a2193fa92b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac85b3e0851270046e8a58a2193fa92b0">&#9670;&nbsp;</a></span>rdg_new()</h2>
+<a id="gac85b3e0851270046e8a58a2193fa92b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac85b3e0851270046e8a58a2193fa92b0">&#9670;&nbsp;</a></span>rdg_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +203,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a new data generator based off the provided expression. </p>
-<p>Creates the rdg object that stores the state of the generated regular expression. It is the application's responsibility to free with <a class="el" href="rdg_8h.html#a8ca3b777f0cd64967057fefec0eb533c" title="Frees the data generator object.">rdg_free()</a>;</p>
+<p>Creates the rdg object that stores the state of the generated regular expression. It is the application's responsibility to free with <a class="el" href="group__rdg.html#ga8ca3b777f0cd64967057fefec0eb533c" title="Frees the data generator object.">rdg_free()</a>;</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">expression</td><td>A regular expression (within the defined subset)</td></tr>
@@ -221,8 +214,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a28718022d13c6415408101080cffd914"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28718022d13c6415408101080cffd914">&#9670;&nbsp;</a></span>rdg_permutations()</h2>
+<a id="ga28718022d13c6415408101080cffd914"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga28718022d13c6415408101080cffd914">&#9670;&nbsp;</a></span>rdg_permutations()</h2>
 
 <div class="memitem">
 <div class="memproto">
