@@ -13,6 +13,12 @@ extern "C" {
 
 #include <stddef.h>
 
+/**
+ * @defgroup rdg librdg
+ * Documentation to core librdg usage
+ * @{
+ */
+
 /** A regex (regular expression) data generator */
 struct rdg;
 
@@ -63,6 +69,10 @@ size_t rdg_permutations(const struct rdg* rdg);
  * @param[in] rdg The data generator
  */
 void rdg_free(struct rdg* rdg);
+
+/**
+ * @}
+ */
 
 #ifdef __cplusplus
 }

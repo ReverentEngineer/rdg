@@ -11,6 +11,11 @@
 
 #include "rdg.h"
 
+/**
+ * @defgroup rdgpp librdg++
+ * Documentation for C++ interface to librdg
+ * @{
+ */
 
 /**
  * @brief A regex (regula expression) data generator 
@@ -49,5 +54,8 @@ class RDG {
     rdg* m_rdg;
 };
 
+/**
+ * @}
+ */
 
 #endif /* __RDG_HH__ */
