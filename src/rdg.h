@@ -14,7 +14,7 @@ extern "C" {
 #include <stddef.h>
 
 /**
- * @defgroup rdg librdg
+ * @defgroup librdg librdg
  * Documentation to core librdg usage
  * @{
  */

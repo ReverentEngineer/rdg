@@ -12,7 +12,7 @@
 #include "rdg.h"
 
 /**
- * @defgroup rdgpp librdg++
+ * @defgroup librdg-cpp librdg++
  * Documentation for C++ interface to librdg
  * @{
  */
