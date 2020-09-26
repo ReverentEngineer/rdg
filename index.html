@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>rdg: Regex Data Generator (RDG)</title>
+<title>rdg: librdg</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">rdg
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -63,53 +63,44 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Regex Data Generator (<a class="el" href="class_r_d_g.html" title="A regex (regula expression) data generator.">RDG</a>) </div>  </div>
+<div class="title">librdg </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="class_r_d_g.html" title="A regex (regula expression) data generator.">RDG</a> is a library with an accompanying executable and Python bindings that allow users to generate data sets by specifying how data should look using regular expressions.</p>
+<div class="textblock"><p>librdg is a library for generating data sets by specifying how the data should look using regular expressions. It includes a C++ wrapper and Python bindings for use with your favorite language. Well, as long as your favorite language is C, C++, or Python.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Pre-requisites</h1>
-<p>To build only the C library, the following packages are required:</p>
+Interfaces</h1>
 <ul>
-<li>gcc</li>
-<li>CMake</li>
-<li>flex</li>
-<li>bison</li>
+<li><a class="el" href="group__librdg.html">librdg</a></li>
+<li><a class="el" href="group__librdg-cpp.html">librdg++</a></li>
 </ul>
-<p>In addition, to build the Python bindings, the Python development headers are required. This was tested with Python 3.7.7.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Installation</h1>
-<div class="fragment"><div class="line">mkdir build</div>
-<div class="line">cd build</div>
-<div class="line">cmake ...</div>
-<div class="line">make install</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
 Quickstart</h1>
 <p>A quick example of how to use librdg:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;rdg.h&gt;</span></div>
 <div class="line">...</div>
-<div class="line">struct rdg* rdg = <a class="code" href="group__rdg.html#gac85b3e0851270046e8a58a2193fa92b0">rdg_new</a>(<span class="stringliteral">&quot;test[1-3]&quot;</span>);</div>
+<div class="line">struct rdg* rdg = <a class="code" href="group__librdg.html#gac85b3e0851270046e8a58a2193fa92b0">rdg_new</a>(<span class="stringliteral">&quot;test[1-3]&quot;</span>);</div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data = NULL;</div>
 <div class="line"><span class="keywordtype">size_t</span> size = 0;</div>
-<div class="line"><span class="keywordflow">while</span>(<a class="code" href="group__rdg.html#ga752c2cd05d61467ef661295025bd0214">rdg_generate</a>(&amp;data, &amp;size, data)) {</div>
+<div class="line"><span class="keywordflow">while</span>(<a class="code" href="group__librdg.html#ga752c2cd05d61467ef661295025bd0214">rdg_generate</a>(&amp;data, &amp;size, data)) {</div>
 <div class="line">  ... Do something with data ...</div>
 <div class="line">}</div>
-<div class="line"><a class="code" href="group__rdg.html#ga8ca3b777f0cd64967057fefec0eb533c">rdg_free</a>(rdg);</div>
-</div><!-- fragment --><p>An example of how to do the same thing in Python:</p>
+<div class="line"><a class="code" href="group__librdg.html#ga8ca3b777f0cd64967057fefec0eb533c">rdg_free</a>(rdg);</div>
+</div><!-- fragment --><p>The equivalent functionality in librdg++:</p>
+<div class="fragment"><div class="line">#include &lt;rdg.hh&gt;</div>
+<div class="line">...</div>
+<div class="line">RDG generator(&quot;test[1-3&quot;);</div>
+<div class="line">for (int i = 0; i &lt; rdg.permutations(); i++) {</div>
+<div class="line">  std::string permutation = rdg.generate();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>And the same thing in Python:</p>
 <div class="fragment"><div class="line">from rdg import RDG</div>
 <div class="line">for data in RDG(&quot;test[1-3]&quot;):</div>
 <div class="line">  ... Do something with data ...</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
-Documentation</h1>
-<p>Documentation can be found at <a href="https://reverentengineer.com/rdg">https://reverentengineer.com/rdg</a></p>
-<h1><a class="anchor" id="autotoc_md5"></a>
-License</h1>
-<p>This software is released under the MIT license. See the file LICENSE for more details. </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
-<div class="ttc" id="agroup__rdg_html_ga752c2cd05d61467ef661295025bd0214"><div class="ttname"><a href="group__rdg.html#ga752c2cd05d61467ef661295025bd0214">rdg_generate</a></div><div class="ttdeci">int rdg_generate(const unsigned char **result, size_t *size, struct rdg *rdg)</div><div class="ttdoc">Generates the next result from the data generator.</div></div>
-<div class="ttc" id="agroup__rdg_html_gac85b3e0851270046e8a58a2193fa92b0"><div class="ttname"><a href="group__rdg.html#gac85b3e0851270046e8a58a2193fa92b0">rdg_new</a></div><div class="ttdeci">struct rdg * rdg_new(const char *expression)</div><div class="ttdoc">Creates a new data generator based off the provided expression.</div></div>
-<div class="ttc" id="agroup__rdg_html_ga8ca3b777f0cd64967057fefec0eb533c"><div class="ttname"><a href="group__rdg.html#ga8ca3b777f0cd64967057fefec0eb533c">rdg_free</a></div><div class="ttdeci">void rdg_free(struct rdg *rdg)</div><div class="ttdoc">Frees the data generator object.</div></div>
+<div class="ttc" id="agroup__librdg_html_gac85b3e0851270046e8a58a2193fa92b0"><div class="ttname"><a href="group__librdg.html#gac85b3e0851270046e8a58a2193fa92b0">rdg_new</a></div><div class="ttdeci">struct rdg * rdg_new(const char *expression)</div><div class="ttdoc">Creates a new data generator based off the provided expression.</div></div>
+<div class="ttc" id="agroup__librdg_html_ga8ca3b777f0cd64967057fefec0eb533c"><div class="ttname"><a href="group__librdg.html#ga8ca3b777f0cd64967057fefec0eb533c">rdg_free</a></div><div class="ttdeci">void rdg_free(struct rdg *rdg)</div><div class="ttdoc">Frees the data generator object.</div></div>
+<div class="ttc" id="agroup__librdg_html_ga752c2cd05d61467ef661295025bd0214"><div class="ttname"><a href="group__librdg.html#ga752c2cd05d61467ef661295025bd0214">rdg_generate</a></div><div class="ttdeci">int rdg_generate(const unsigned char **result, size_t *size, struct rdg *rdg)</div><div class="ttdoc">Generates the next result from the data generator.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
