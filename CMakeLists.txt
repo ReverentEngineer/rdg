@@ -10,6 +10,9 @@ if (APPLE)
   set(CMAKE_MACOSX_RPATH FALSE)
 endif()
 
+set(BUILD_DOCS TRUE CACHE BOOL "Whether to build documentation.")
+
+find_package(Doxygen 1.8.0)
 find_package(BISON 2.6.0 REQUIRED)
 find_package(FLEX REQUIRED)
 
