@@ -11,7 +11,7 @@ module = Extension('rdg',
                     sources = ['src/pyrdg.c'])
 
 setup (name = 'rdg',
-       version = '1.0.0',
+       version = '1.1.0',
        description = 'A regex-based data generator',
        author = 'Jeff Caffrey-Hill',
        author_email = 'jeff@reverentengineer.com',
