@@ -13,7 +13,7 @@ git clone --branch gh-pages $(git remote get-url origin) $TMPDIR &&\
   cd build_docs&&\
   cmake .. &&\
   make doxygen &&\
-  cp -rf doc/html $TMPDIR &&\
+  cp -rf doc/html/* $TMPDIR &&\
   cd $TMPDIR &&\
   git add ./* &&\
   git commit &&\
