@@ -1,5 +1,7 @@
 #include "rdg.hh"
 
+#include <stdexcept>
+
 RDG::RDG(const std::string& expression) {
   m_rdg = rdg_new(expression.c_str());
   if (m_rdg == NULL) {
