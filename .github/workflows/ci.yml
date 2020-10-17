@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install dependenciencies
+    - name: Install dependencies
       run: sudo apt install python3-setuptools valgrind
       
     - name: Create Build Environment
