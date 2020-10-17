@@ -52,7 +52,8 @@ static char* encode_expression(const char* expression, Py_ssize_t length) {
   char* encoded = NULL;
   Py_ssize_t final_length = 0;
   char* output = NULL;
-  for (Py_ssize_t i = 0; i < length; i++) {
+  Py_ssize_t i = 0;
+  for (; i < length; i++) {
     if (isalnum(expression[i]) || isrdgspecial(expression[i])) {
       final_length += 1;
     } else {
@@ -61,7 +62,7 @@ static char* encode_expression(const char* expression, Py_ssize_t length) {
   }
   encoded = malloc(final_length + 1);
   output = encoded;
-  for (Py_ssize_t i = 0; i < length; i++) {
+  for (i = 0; i < length; i++) {
     if (isalnum(expression[i]) || isrdgspecial(expression[i])) {
       *output = expression[i];
       output += 1;

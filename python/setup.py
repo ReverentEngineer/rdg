@@ -1,13 +1,9 @@
 from setuptools import setup, Extension
 import os
 
-library_dirs = None
-if 'LD_LIBRARY_PATH' in os.environ:
-    library_dirs = os.environ['LD_LIBRARY_PATH'].split(":")
-
 module = Extension('rdg',
                     libraries = ['rdg'],
-                    library_dirs=library_dirs,
+                    include_dirs = ['../src'],
                     sources = ['src/pyrdg.c'])
 
 setup (name = 'rdg',
