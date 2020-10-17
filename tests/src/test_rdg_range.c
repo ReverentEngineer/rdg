@@ -11,6 +11,7 @@ int main() {
   struct rdg_range_iterator *it = NULL;
   unsigned char value;
   unsigned char expected = 0;
+  int i = 0;
   range1 = rdg_range_new();
   assert(range1 != NULL);
   assert(rdg_range_permutations(range1) == 0);
@@ -25,7 +26,7 @@ int main() {
   it = rdg_range_begin(range2);
   assert(it != NULL);
   expected = 'a';
-  for (int i = 0; i < 25; i++) {
+  for (; i < 25; i++) {
     value = rdg_range_get(it);
     assert((expected + i) == value);
     assert(rdg_range_next(it));

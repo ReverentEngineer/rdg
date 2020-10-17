@@ -23,7 +23,8 @@ static int rdg_generate_stdout(struct rdg* rdg) {
     } else {
       int bits = ceil(log2(size));
       int bytes = (bits % 8 == 0) ? (bits / 8) : ((bits / 8) + 1);
-      for (int i = bytes - 1; i >= 0; i -= 1) {
+      int i = bytes - 1;
+      for (; i >= 0; i -= 1) {
         uint8_t byte = *(((uint8_t*)&size) + i);
         fputc(byte, stdout);
       }    
