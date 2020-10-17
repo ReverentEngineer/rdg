@@ -20,7 +20,7 @@ jobs:
     - name: Configure CMake
       shell: bash
       working-directory: ${{runner.workspace}}/build
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC
+      run: cmake $GITHUB_WORKSPACE -DBUILD_SHARED_LIBS=True -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_C_FLAGS=-fPIC -DCMAKE_CXX_FLAGS=-fPIC
       
     - name: Build
       working-directory: ${{runner.workspace}}/build
