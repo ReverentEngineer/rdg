@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 enable_testing()
 
 project(rdg C CXX)
-set(PROJECT_VERSION 1.1.0)
+set(PROJECT_VERSION 1.1.1)
 
 include(CTest)
 
