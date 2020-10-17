@@ -171,12 +171,13 @@ void rdg_range_append_atom(struct rdg_range* range, unsigned char one) {
     if (range->root != NULL) {
       if (add(range->root, new_node) == 0) {
         range->size += 1;
+        repair(new_node);
       }
     } else {
       range->root = new_node;
       range->size += 1;
+      repair(new_node);
     }
-    repair(new_node);
   }
 }
 
