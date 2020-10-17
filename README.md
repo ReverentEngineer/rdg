@@ -1,5 +1,7 @@
 # Regex Data Generator (RDG)
 
+![CI](https://github.com/ReverentEngineer/rdg/workflows/CMake/badge.svg)
+
 RDG is a library with an accompanying executable and Python bindings that
 allow users to generate data sets by specifying how data should look using
 regular expressions.
