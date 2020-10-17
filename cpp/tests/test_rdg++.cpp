@@ -7,6 +7,8 @@
 
 #include <stdlib.h>
 
+#include <stdexcept>
+
 int main() {
   RDG rdg("[a-c][1-3]");
   assert(rdg.generate() == "a1");
