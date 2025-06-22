@@ -12,7 +12,7 @@ Installation instructions available in [INSTALL.md](INSTALL.md)
 
 # Documentation
 
-Documentation can be found at https://reverentengineer.com/rdg
+Documentation can be found at https://jeff.caffreyhill.com/rdg
 
 # License
 
